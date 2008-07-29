@@ -1,8 +1,6 @@
 #labels Phase-Deploy,Featured
-# bloom-device is a pluggable Django application for device detection using Device Atlas.
-
 =Introduction=
-bloom-device uses [http://deviceatlas.com/ Device Atlas] to detect the browsing device from `request.META['HTTP_USER_AGENT']`. bloom-device modifies the `request` object, adding the dictionary `request.device` which contains attributes pulled from Device Atlas.
+BloomDevice uses [http://deviceatlas.com/ Device Atlas] to detect the browsing device from `request.META['HTTP_USER_AGENT']`. bloom-device modifies the `request` object, adding the dictionary `request.device` which contains attributes pulled from Device Atlas.
 
 For example:
 
@@ -20,34 +18,57 @@ Device detection can be used either on all requests through `bloom.device.middle
 
 ==Installation Overview==
  
-* Install Device Atlas Python API
-
-* Install Device Atlas JSON library file
-
-* Install Device Atlas dependency `simplejson`
-
-* Add `bloom.device` to `INSTALLED_APPS`
-
-* Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`
-
-* Or `bloom.device.decorators.detect_device` on a view
+  * Install Device Atlas Python API
+  * Install Device Atlas dependency `simplejson`
+  * Install Device Atlas JSON library file
+  * Add `bloom.device` to `INSTALLED_APPS`
+  * Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`
+  * Or `bloom.device.decorators.detect_device` on a view
 
 ==Installation Guide==
 
-To use bloom-device you will first need to install the Device Atlas Python API and download the Device Atlas JSON library file. 
+===Install Device Atlas Python API===
 
-[http://deviceatlas.com/downloads Download the Device Atlas Python API here]. *You will need to sign up for dev.mobi to download the API*. At the time of writing the Device Atlas Python API has not been packaged using setuptools or distutils so you will have to unzip the file into your site-packages directory yourself. If you're unsure where you site-packages directory is use this command:
+Download the Device Atlas Python API from [http://deviceatlas.com/downloads http://deviceatlas.com/downloads]. _You will need to sign up for dev.mobi to download the API_.
+
+At the time of writing the Device Atlas Python API has not been packaged using setuptools or distutils. You will have to build it yourself. Start by unzipping the file into your Python Path in a folder called `deviceatlas`.
+
+{{{/your/site/packages/directory/deviceatlas/`}}}
+
+If you're unsure where you site-packages directory is use this command to find it:
 
 {{{python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"}}}
 
-*Move the Device Atlas API zip to your site-packages into a folder called `deviceatlas`* 
+_Be sure to move the Device Atlas API into a folder called `deviceatlas`_
+
+===Install Device Atlas dependency `simplejson`===
 
 To use Device Atlas we'll need to install it's dependencies.
 
 {{{easy_install simplejson}}}
 
-To see if your installation was successful
+===Install Device Atlas JSON library file===
 
+Device Atlas works by parsing a huge JSON file filled with attributes about different devices. We'll need to download this and put it in the `deviceatlas` directory we created. You can download the free Device Atlas developer file from [http://deviceatlas.com/product http://deviceatlas.com/product].
+
+_Once you have download the file be sure to place it in your `deviceatlas`_directory. 
+
+Take a deep breathe. If everything went right Device Atlas should now be installed and ready. Test it out from the command line:
+
+{{{
+from deviceatlas.api import DaApi
+from distutils.sysconfig import get_python_lib
+da = DaApi()
+path_to_device_atlas_json = "%s/deviceatlas/DeviceAtlas.json" % get_python_lib()
+tree = da.getTreeFromFile(path_to_device_atlas_json)
+da.getTreeRevision(tree)
+ua = 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543 Safari/419.3'
+da.getProperties(tree, ua)
+}}}
+
+If nothing broke, we're ready to move on, otherwise go back and check everything!
+
+===
 
 To use bloom-device: 
 
