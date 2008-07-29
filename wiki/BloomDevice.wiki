@@ -1,5 +1,5 @@
 #labels Phase-Deploy,Featured
-#bloom-device is a pluggable Django application for device detection using Device Atlas.
+# bloom-device is a pluggable Django application for device detection using Device Atlas.
 
 =Introduction=
 bloom-device uses [http://deviceatlas.com/ Device Atlas] to detect the browsing device from `request.META['HTTP_USER_AGENT']`. bloom-device modifies the `request` object, adding the dictionary `request.device` which contains attributes pulled from Device Atlas.
@@ -19,12 +19,17 @@ For example:
 Device detection can be used either on all requests through `bloom.device.middleware.DeviceDetectMiddleware` or applied to individual views with the decorator function `bloom.device.decorators.detect_device`.
 
 ==Installation Overview==
-
+ 
 * Install Device Atlas Python API
+
 * Install Device Atlas JSON library file
+
 * Install Device Atlas dependency `simplejson`
+
 * Add `bloom.device` to `INSTALLED_APPS`
+
 * Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`
+
 * Or `bloom.device.decorators.detect_device` on a view
 
 ==Installation Guide==
