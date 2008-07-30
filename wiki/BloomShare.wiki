@@ -23,12 +23,14 @@ urlpatterns = patterns('',
 
     * Add the correct settings to your settings.py so that sharedlinks are created with the correct base url and slug length
 
-{{{BLOOM_SHARE_BASE_URL = 'http://localhost:8000/lookup'
+{{{
+BLOOM_SHARE_BASE_URL = 'http://localhost:8000/lookup'
 # This is the starting length for your slug,
 # if bloom creates 10 different slugs and they all find existing matches,
 # then bloom will use BLOOM_SHARE_SLUG_LENGTH+1 to create the next slug.
 # basically keep an eye on slug usage and increment this if your users are doing alot of sharing
-BLOOM_SHARE_SLUG_LENGTH = 5}}}
+BLOOM_SHARE_SLUG_LENGTH = 5
+}}}
 
 
 Now with the lookups correctly configured you can add the bloom.share functionality throughout your app .
