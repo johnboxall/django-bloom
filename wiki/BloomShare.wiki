@@ -1,10 +1,38 @@
-#summary One-sentence summary of this page.
 bloom-share lets you shorten urls so that they are more easily shared on character restricted mediums.
 
 = Introduction =
 bloom-share shortens urls by storing the full url in a database and doing lookups on request then redirecting to the proper url.  bloom-share exists because SMS message are only permitted to contain 140 characters, so longer/complex urls would consume too many characters in an SMS message.
 
-Add your content here.
+To use bloom-share:
+
+    * Add bloom.share to your INSTALLED_APPS: 
+
+INSTALLED_APPS = (
+    ...
+    bloom.share,
+    ...
+)
+
+    * Add bloom.share.views lookup_view to your urls patterns so that sharedlinks will resolve properly
+
+urlpatterns = patterns('',
+    ...
+     (r'^lookup/(?P<slug>[A-Za-z0-9]+)/$', lookup_view),
+    ...
+)
+
+    * Add the correct settings to your settings.py so that sharedlinks are created with the correct base url and slug length
+
+BLOOM_SHARE_BASE_URL = 'http://localhost:8000/lookup'
+# This is the starting length for your slug,
+# if bloom creates 10 different slugs and they all find existing matches,
+# then bloom will use BLOOM_SHARE_SLUG_LENGTH+1 to create the next slug.
+# basically keep an eye on slug usage and increment this if your users are doing alot of sharing
+BLOOM_SHARE_SLUG_LENGTH = 5
+
+
+Now with the lookups correctly configured you can add the bloom.share functionality throughout your app .
+
 
 
 = Details =
