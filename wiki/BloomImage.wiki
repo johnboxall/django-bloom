@@ -1,14 +1,61 @@
 #summary BloomImage works with BloomDevice to fit images to a mobile device.
-#labels Phase-Deploy,Phase-Design
+#labels Phase-Deploy
 
 = Introduction =
 
-Add your content here.
+BloomImage implements template tags that work with BloomDevice to generate images that fit mobile devices.
+
+For example:
+
+{{{
+{% load deviceimage %}
+{% deviceimage "image.jpg" 75x75 as image %}
+<img src="{{ image }}" width="{{ image.width }}" height="{{ image.height }}" />
+}}}
+
+----
+
+= Installation Overview =
+
+  * Install BloomDevice
+  * Install the [http://effbot.org/zone/pil-index.htm Python Imaging Library] (PIL)
+  * Install `[http://code.google.com/p/sorl-thumbnail/ sorl-thumbnail]`
+  * Add `bloom.image` to `INSTALLED_APPS`
+  * Load the `device_image` tag library in a template and use the `device_image` tag
+  uses Sorl Thumbnail 
+
+----
+
+= Installation Guide =
+
+=== Install BloomDevice ===
+
+Follow the steps for the BloomDevice here.
+
+=== Install the [http://effbot.org/zone/pil-index.htm Python Imaging Library] (PIL) ===
+
+BloomImage requires the image manipulation functions the PIL provides. Installing the PIL is currently out of scope for this guide. Here are good links to get you started:
+
+  * [http://effbot.org/zone/pil-index.htm Python Imaging Library]
+  * [http://code.google.com/appengine/docs/images/installingPIL.html Google Guide to Installing PIL]
+  * 
+
+=== Install `[http://code.google.com/p/sorl-thumbnail/ sorl-thumbnail]` ===
+
+`sorl-thumbnail` is an awesome - used for generating thumbnails. It just as well at generating images for mobile devices. Check it out from Google Code.
+
+{{{
+svn checkout http://sorl-thumbnail.googlecode.com/svn/trunk/ sorl-thumbnail
+}}}
+
+At the time of writing `sorl-thumbnail` has not been packages so you will need to put it in the right place yourself.
+
+{{{
+insert guide from other thing here.
+}}}
+
+=== Add `bloom.image` to `INSTALLED_APPS` ===
 
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+===   * Load the `device_image` tag library in a template and use the `device_image` tag
+  uses Sorl Thumbnail 
