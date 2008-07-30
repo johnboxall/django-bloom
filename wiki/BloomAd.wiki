@@ -12,6 +12,12 @@ Example:
 {% admob %}
 }}}
 
+Produces:
+
+{{{
+<img width="300" height="50" alt="Snap. Send. Share ur mobile pics" src="http://mm.admob.com/url/to/an/ad.png"/>
+}}}
+
 
 = Installation Overview =
 
