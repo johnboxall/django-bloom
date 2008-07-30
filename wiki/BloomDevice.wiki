@@ -1,6 +1,5 @@
 #labels Phase-Deploy,Featured
-BloomDevice uses [http://deviceatlas.com/ Device Atlas] to detect the browsing device from `request.META['HTTP_USER_AGENT']`.
-BloomDevice modifies the `request` object, adding the dictionary `request.device` which contains attributes pulled from Device Atlas.
+BloomDevice uses [http://deviceatlas.com/ Device Atlas] to detect the browsing device from `request.META['HTTP_USER_AGENT']`. BloomDevice modifies the `request` object, adding the dictionary `request.device` which contains attributes pulled from Device Atlas.
 
 For example:
 
