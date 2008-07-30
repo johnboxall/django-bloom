@@ -1,11 +1,11 @@
-#summary BloomAd makes it easy to insert mobile ads into your website.
+#summary BloomAd makes it simple to insert mobile ads into your website.
 #labels Phase-Deploy
 
 = Introduction =
 
-Currently only admob is supported - bu mor eon the way!
-
-Example:
+BloomAd provides a set of template tags for inserting ads from mobile ad networks into your website. Currently Admob is supported.
+ 
+Usage:
 
 {{{
 {% load admob %}
@@ -17,7 +17,6 @@ Produces:
 {{{
 <img width="300" height="50" alt="Snap. Send. Share ur mobile pics" src="http://mm.admob.com/url/to/an/ad.png"/>
 }}}
-
 
 = Installation Overview =
 
@@ -56,15 +55,14 @@ Add the settings `BLOOM_ADMOB_DEBUG` and `BLOOM_ADMOB_SITE_ID`:
 
 {{{
 BLOOM_ADMOB_DEBUG = True # Switch to False when you are ready to serve ads in Production
-BLOOM_ADMOB_SITE_ID = 'get-from-admob'
+BLOOM_ADMOB_SITE_ID = 'get-from-admob' # Your Admob site ID
 }}}
 
 === 3. Use the `admob` template tag in a template ===
 
-To display an Admob ad on a page we can easierly we can use the `admob` template tag in the `admob` tag library:
+To display a generic Admob ad with we can use the `admob` template tag in the `admob` tag library:
 
 {{{
 {% load admob %}
-
 {% admob %}
 }}}
