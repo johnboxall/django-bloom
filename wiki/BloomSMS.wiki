@@ -13,7 +13,7 @@ Add bloom.sms.views.send_sms_view to your url patterns and it should display a b
 This widget expects your settings.py to contain the correct values, and for the template directory bloom.sms.templates to be added to your templates directory.
 
 
-= Installation Details =
+= Installation Overview =
 
     * Add bloom.device to your INSTALLED_APPS: 
 
@@ -24,7 +24,7 @@ INSTALLED_APPS = (
 )
 
     * Make sure you correctly configure your settings.py to contain your chosen SMS provider and credentials
-
+{{{
 #SMS provider credentials
 BLOOM_SMS_SERVICE_PROVIDER = 'UPSIDE'
 BLOOM_SMS_SERVICE_USERNAME = 'username'
@@ -37,5 +37,5 @@ BLOOM_SMS_RECORD_RECEIVED = 'False'
 #they can be left blank, but there is a performance hit in doing so.
 BLOOM_SMS_UPSIDE_TOKEN = ''
 BLOOM_SMS_UPSIDE_SIG = ''
-
+}}}
 bloom.sms is now properly setup and can be used to send sms messages from within your app.
