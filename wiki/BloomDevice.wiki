@@ -28,7 +28,6 @@ Device detection can be used either on all requests through `bloom.device.middle
   # Install Device Atlas JSON library file
   # Test Device Atlas installation
   # Modify settings.py
-Add `bloom.device` to `INSTALLED_APPS`
   # Usage
 
 = Installation Guide =
