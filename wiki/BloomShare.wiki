@@ -1,0 +1,15 @@
+#summary One-sentence summary of this page.
+bloom-share lets you shorten urls so that they are more easily shared on character restricted mediums.
+
+= Introduction =
+bloom-share shortens urls by storing the full url in a database and doing lookups on request then redirecting to the proper url.  bloom-share exists because SMS message are only permitted to contain 140 characters, so longer/complex urls would consume too many characters in an SMS message.
+
+Add your content here.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
