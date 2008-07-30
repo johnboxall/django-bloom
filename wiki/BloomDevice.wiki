@@ -100,7 +100,7 @@ MIDDLEWARE_CLASSES = (
 )
 }}}
 
-*Using the `bloom.device.decorators.detect_device` Decorator:*
+===Using the `bloom.device.decorators.detect_device` Decorator:===
 
 The `detect_device` decorator can be used to add device information to a specific view.
 
