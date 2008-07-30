@@ -42,4 +42,5 @@ bloom.sms is now properly setup and can be used to send sms messages from within
 
 
 [BloomSMSAPI API Documentation]
+
 [BloomSMSConnector Writing A Connector]
