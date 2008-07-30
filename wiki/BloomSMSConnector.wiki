@@ -37,5 +37,4 @@
 						This function is used for debugging and for storing the fullresponse in the database when 
 				     		BLOOM_SMS_RECORD_SENT is sent to True
 
-	ProviderName_receive_sms(request) Takes the request and extracts the values from the received SMS and places them in a list to return.
-
+	!ProviderName_receive_sms(request) Takes the request and extracts the values from the received SMS and places them in a list to return.
