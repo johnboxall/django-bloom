@@ -10,24 +10,24 @@ Inside bloom.share.utils
 {{{		
 		share_url(sharer, url, medium, sharee):
 }}}
-			*The sharer is the person who wishes to send the url to the sharee.(this is a user object from django.contrib.auth.models.User)
-			*The url is the full url of the site to be shared.
-			*medium is the a string indicating the way this url is intended to be shared.(ie: 'email', 'sms',etc)
-			*The sharee is the person who is receiving the shortened url. (this is a user object from django.contrib.auth.models.User) 
-			*Returns the shortened url
+			* The sharer is the person who wishes to send the url to the sharee.(this is a user object from django.contrib.auth.models.User)
+			* The url is the full url of the site to be shared.
+			* medium is the a string indicating the way this url is intended to be shared.(ie: 'email', 'sms',etc)
+			* The sharee is the person who is receiving the shortened url. (this is a user object from django.contrib.auth.models.User) 
+			* Returns the shortened url
 
 {{{		
 		share_by_email(request, url, email, subject_template, body_template):
 }}}
-			*Shares the given url with the email given.  
-			*Uses the request object to determine the sharer(this implies that the sharer has to be logged in to share)
-			*Uses the email to determine the sharee
-			*The subject_template is the template with which the subject of the email is created.
-			*The body_template is the template with which the body of the email is created.
+			* Shares the given url with the email given.  
+			* Uses the request object to determine the sharer(this implies that the sharer has to be logged in to share)
+			* Uses the email to determine the sharee
+			* The subject_template is the template with which the subject of the email is created.
+			* The body_template is the template with which the body of the email is created.
 {{{
 		share_by_sms(request, url, phone_number, body_template):
 }}}
-			*Shares the given url with the phone_number given using bloom.sms
-			*Uses the request object to determine the sharer(this implies that the sharer has to be logged in to share)
-			*Uses the phone_number to determine the sharee
-			*The body_template is the template with which the SMS message is created.
+			* Shares the given url with the phone_number given using bloom.sms
+			* Uses the request object to determine the sharer(this implies that the sharer has to be logged in to share)
+			* Uses the phone_number to determine the sharee
+			* The body_template is the template with which the SMS message is created.
