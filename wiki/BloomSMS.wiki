@@ -39,3 +39,7 @@ BLOOM_SMS_UPSIDE_TOKEN = ''
 BLOOM_SMS_UPSIDE_SIG = ''
 }}}
 bloom.sms is now properly setup and can be used to send sms messages from within your app.
+
+
+[BloomSMS API Documentation]
+[BloomSMS Writing A Connector]
