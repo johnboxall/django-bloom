@@ -13,49 +13,56 @@ For example:
 <img src="{{ image }}" width="{{ image.width }}" height="{{ image.height }}" />
 }}}
 
-----
-
 = Installation Overview =
 
   * Install BloomDevice
   * Install the [http://effbot.org/zone/pil-index.htm Python Imaging Library] (PIL)
   * Install `[http://code.google.com/p/sorl-thumbnail/ sorl-thumbnail]`
   * Add `bloom.image` to `INSTALLED_APPS`
-  * Load the `device_image` tag library in a template and use the `device_image` tag
-  uses Sorl Thumbnail 
-
-----
+  * Use the `device_image` Template Tag Library
 
 = Installation Guide =
 
 === Install BloomDevice ===
 
-Follow the steps for the BloomDevice here.
+To install Bloom Device follow the steps in the installation guide:
+
+[http://code.google.com/p/django-bloom/wiki/BloomDevice http://code.google.com/p/django-bloom/wiki/BloomDevice]
 
 === Install the [http://effbot.org/zone/pil-index.htm Python Imaging Library] (PIL) ===
 
-BloomImage requires the image manipulation functions the PIL provides. Installing the PIL is currently out of scope for this guide. Here are good links to get you started:
+BloomImage requires the image manipulation functions provided by the PIL. Installing the PIL is currently out of scope for this guide. Here are good links to get you started:
 
   * [http://effbot.org/zone/pil-index.htm Python Imaging Library]
   * [http://code.google.com/appengine/docs/images/installingPIL.html Google Guide to Installing PIL]
-  * 
 
 === Install `[http://code.google.com/p/sorl-thumbnail/ sorl-thumbnail]` ===
 
-`sorl-thumbnail` is an awesome - used for generating thumbnails. It just as well at generating images for mobile devices. Check it out from Google Code.
+`sorl-thumbnail` is a pluggable Django application used for creating thumbnail images. It works just as well generating images for mobile devices. You can check it out from Google Code.
 
 {{{
 svn checkout http://sorl-thumbnail.googlecode.com/svn/trunk/ sorl-thumbnail
 }}}
 
-At the time of writing `sorl-thumbnail` has not been packages so you will need to put it in the right place yourself.
-
-{{{
-insert guide from other thing here.
-}}}
+At the time of writing `sorl-thumbnail` has not been packaged so you will need to place it in on your Python Path yourself.
 
 === Add `bloom.image` to `INSTALLED_APPS` ===
 
+{{{
+INSTALLED_APPS = (
+    ...
+    'bloom.device',
+    'bloom.image',
+    ...
+)
+}}}
 
-===   * Load the `device_image` tag library in a template and use the `device_image` tag
-  uses Sorl Thumbnail 
+=== Use the `device_image` Template Tag Library ===
+
+BloomDevice currently generates images that fit the full width of a mobile device.
+
+{{{
+{% load device_image %}
+{% deviceimage "image.jpg" 75x75 as image %}
+<img src="{{ image }}" width="{{ image.width }}" height="{{ image.height }}" />
+}}}
