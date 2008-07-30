@@ -7,7 +7,7 @@ BloomTrack provides basic analytic for your mobile website by recording META inf
 
 [http://blog.mymart.com/2008/07/22/bango-releases-the-google-analytics-of-mobile/ http://blog.mymart.com/2008/07/22/bango-releases-the-google-analytics-of-mobile/]
 
-BloomTrack can be used either on all requests through `bloom.track.middleware.TrackMiddleare` or applied to individual views with the decorator function `bloom.device.decorators.tract`.
+BloomTrack can be used either on all requests through `bloom.track.middleware.TrackMiddleare` or applied to individual views with the decorator function `bloom.device.decorators.track`.
 
 = Installation Overview =
 
@@ -22,7 +22,7 @@ BloomTrack can be used either on all requests through `bloom.track.middleware.Tr
 
 Follow the Bloom install guide here.
 
-=== 2. Add `bloom.track` to `INSTALLED_APPS ===
+=== 2. Add `bloom.track` to `INSTALLED_APPS` ===
 
 {{{
 INSTALLED_APPS = (
