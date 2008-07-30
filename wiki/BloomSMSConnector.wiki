@@ -1,0 +1,41 @@
+	Connectors take care of SMS provider specific implementation details and expose a unified interface with which bloom.sms.utils can
+	interact with each provider seamlessly.
+
+	When writting a connector, the standard structure is to place the files in bloom.sms.lib.PROVIDER_NAME.connector.py
+	
+	To create a connector you need to implement a few functions.
+{{{
+	class Connector:
+		__init__()
+		send_plain_sms(msg,recipient)
+		verify_connect()
+		was_send_successful(sms_result)
+		get_fullresponse(sms_result)
+}}}		
+
+	in addition to the class a separate receive function is needed
+{{{
+	ProviderName_receive_sms(request)
+}}}
+
+	
+	Connector.__init__() can take as many or as few arguments as you wish.
+			     Once you have defined this function, you have to update bloom.sms.utils.SendSMS() to reflect your parameters.
+
+	Connector.send_plain_sms(msg,recipient) takes a msg and a single reciepient number to send the message to.
+				  	        It returns the result value from the SMS provider   
+
+	Connector.verify_connect() connects to the SMS provider and calls their testing function.
+				   Returns the result value from the SMS provider.
+
+	Connector.was_send_successful(sms_result) takes the return value from the SMS provider and parses it to determine 
+						  if the status was successful.  This function exists because many providers 
+						  do not provider a simple boolean for status but rather a collection of 
+						  values that have to be evaluated to determine if the send was successful.
+
+	Connector.get_fullresponse(sms_result) takes the return value from the SMS provider and creates a human readable version.
+						This function is used for debugging and for storing the fullresponse in the database when 
+				     		BLOOM_SMS_RECORD_SENT is sent to True
+
+	ProviderName_receive_sms(request) Takes the request and extracts the values from the received SMS and places them in a list to return.
+
