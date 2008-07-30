@@ -1,5 +1,4 @@
 #labels Phase-Deploy,Featured
-=Introduction=
 BloomDevice uses [http://deviceatlas.com/ Device Atlas] to detect the browsing device from `request.META['HTTP_USER_AGENT']`.
 BloomDevice modifies the `request` object, adding the dictionary `request.device` which contains attributes pulled from Device Atlas.
 
@@ -17,6 +16,8 @@ For example:
 
 Device detection can be used either on all requests through `bloom.device.middleware.DeviceDetectMiddleware` or applied to individual views with the decorator function `bloom.device.decorators.detect_device`.
 
+---
+
 ==Installation Overview==
  
   * Install Device Atlas Python API
@@ -24,32 +25,40 @@ Device detection can be used either on all requests through `bloom.device.middle
   * Install Device Atlas JSON library file
   * Add `bloom.device` to `INSTALLED_APPS`
   * Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`
-  * Or `bloom.device.decorators.detect_device` on a view
+  * Or `bloom.device.decorators.detect_device` decorator on a view
+
+---
 
 ==Installation Guide==
 
-===Install Device Atlas Python API===
+*Install Device Atlas Python API*
 
 Download the Device Atlas Python API from [http://deviceatlas.com/downloads http://deviceatlas.com/downloads].
 _You will need to sign up for dev.mobi to download the API_.
 
 At the time of writing the Device Atlas Python API has not been packaged using `setuptools` or `distutils`. You will have to build it yourself. Start by unzipping the file into your Python Path in a folder called `deviceatlas`.
 
-{{{/your/site/packages/directory/deviceatlas/`}}}
+{{{
+/your/site/packages/directory/deviceatlas/
+}}}
 
 If you're unsure where you site-packages directory is use this command to find it:
 
-{{{python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"}}}
+{{{
+python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"
+}}}
 
 _Be sure to move the Device Atlas API into a folder called `deviceatlas`_
 
-===Install Device Atlas dependency `simplejson`===
+*Install Device Atlas dependency `simplejson`*
 
 To use Device Atlas we'll need to install it's dependencies.
 
-{{{easy_install simplejson}}}
+{{{
+easy_install simplejson
+}}}
 
-===Install Device Atlas JSON library file===
+*Install Device Atlas JSON library file*
 
 Device Atlas works by parsing a huge JSON file filled with attributes about different devices. We'll need to download this and put it in the `deviceatlas` directory we created. You can download the free Device Atlas developer file from [http://deviceatlas.com/product http://deviceatlas.com/product].
 
@@ -70,21 +79,18 @@ da.getProperties(tree, ua)
 
 If nothing broke, we're ready to move on, otherwise go back and check everything!
 
-===
 
-To use bloom-device: 
-
-  * Add `bloom.device` to your `INSTALLED_APPS`:
+*Add `bloom.device` to `INSTALLED_APPS`*
 
 {{{
 INSTALLED_APPS = (
     ...
-    bloom.device,
+    'bloom.device',
     ...
 )
 }}}
 
-  * Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`. `request.device` will then be available in all views.:
+*Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`*
 
 {{{
 MIDDLEWARE_CLASSES = (
@@ -94,10 +100,9 @@ MIDDLEWARE_CLASSES = (
 )
 }}}
 
-  * Use the `bloom.device.decorators.detect_device` on a view. `request.device` will then be available in that view:
+*Use the `bloom.device.decorators.detect_device` decorator on a view
 
 {{{
-
 from bloom.device.decorators import detect_device
 
 @detect_device
@@ -105,3 +110,5 @@ def my_view(request):
     print request.device
     ...
 }}}
+
+We're done! Now use to your content.
