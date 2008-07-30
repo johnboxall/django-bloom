@@ -21,7 +21,7 @@ Produces:
 = Installation Overview =
 
   # Install Bloom
-  # Signup as for Admob as a publisher
+  # Signup as Admob as an ad publisher
   # Modify `settings.py`
   # Use the `admob` template tag in a template
 
@@ -31,7 +31,7 @@ Produces:
 
 The process is documented here...
 
-=== 2. Signup as for Admob as a publisher ===
+=== 2. Signup as Admob as an ad publisher ===
 
 To display Admob ads you will need to signup for an Admob account:
 
