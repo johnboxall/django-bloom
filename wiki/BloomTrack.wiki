@@ -1,0 +1,63 @@
+#summary BloomTrack let's you track
+#labels Phase-Deploy
+
+= Introduction =
+
+On the mobile web it's tough to use google analytics.
+
+Check out these other metrics platforms:
+
+admob
+bango
+
+Until they 
+
+BloomTrack works either a middleware or decorator - whenever a request is made for a page this is saved.
+
+Add your content here.
+
+
+= Installation Overview =
+
+  # Install Bloom
+  # Add `bloom.track` to `INSTALLED_APPS
+  # Add `bloom.track.middleware.TrackMiddleware` to your `MIDDLEWARE_CLASSES`
+  # Add `bloom.track.decorators.track` to a view
+
+= Installation Guide =
+
+=== 1. Install Bloom ===
+
+=== 2. Add `bloom.track` to `INSTALLED_APPS ===
+
+{{{
+INSTALLED_APPS = (
+    ...
+    'bloom.track',
+    ...
+)
+}}}
+
+=== 3. Add `bloom.track.middleware.TrackMiddleware` to your `MIDDLEWARE_CLASSES` ===
+
+Adding the `TrackMiddleware` will record user history on all views, including admin views.
+
+{{{
+MIDDLEWARE_CLASSES = (
+    ...
+    'bloom.track.middleware.TrackMiddleware',
+    ...
+)
+}}}
+
+=== 4. Add `bloom.track.decorators.track` to a view ===
+
+Use the `Add `bloom.track.decorators.track` decorator to record analytics about a single view.
+
+{{{
+from bloom.track.decorators import track
+
+@track
+def my_view(request):
+    ...
+}}}
