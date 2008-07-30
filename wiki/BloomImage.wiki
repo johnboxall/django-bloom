@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Based on information from BloomDevice, BloomImage resizes images to fit the full width of a mobile device. For example, if you are browsing with a mobile device that has a screen width of 320px - BloomImage will resize a source image to have a width of 320px. This works well for site banners and images that should take up the device's entire screen.
+Based on information from BloomDevice, BloomImage resizes images to fit the full width of a mobile device. For example, if you are browsing with a mobile device that has a screen width of 200px - BloomImage will resize a source image to have a width of 200px. This works well for site banners and images that should take up the device's entire screen.
 
 Example:
 
@@ -47,9 +47,9 @@ BloomImage requires the image manipulation functions provided by the PIL. Instal
   * [http://effbot.org/zone/pil-index.htm Python Imaging Library]
   * [http://code.google.com/appengine/docs/images/installingPIL.html Google Guide to Installing PIL]
 
-=== 4. Install `[http://code.google.com/p/sorl-thumbnail/ sorl-thumbnail]` ===
+=== 4. Install [http://code.google.com/p/sorl-thumbnail/ sorl-thumbnail] ===
 
-`sorl-thumbnail` is a pluggable Django application used for creating thumbnail images. It also works for generating images for mobile devices. You can check it out from Google Code:
+[http://code.google.com/p/sorl-thumbnail/ sorl-thumbnail] is a pluggable Django application used for creating thumbnail images. It also works for generating images for mobile devices. You can check it out from Google Code:
 
 {{{
 svn checkout http://sorl-thumbnail.googlecode.com/svn/trunk/ sorl-thumbnail
