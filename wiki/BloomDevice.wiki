@@ -17,7 +17,7 @@ Device detection can be used either on all requests through `bloom.device.middle
 
 ----
 
-==Installation Overview==
+=Installation Overview=
  
   * Install Device Atlas Python API
   * Install Device Atlas dependency `simplejson`
@@ -28,9 +28,9 @@ Device detection can be used either on all requests through `bloom.device.middle
 
 ----
 
-==Installation Guide==
+=Installation Guide=
 
-*Install Device Atlas Python API:*
+===Install Device Atlas Python API:===
 
 Download the Device Atlas Python API from [http://deviceatlas.com/downloads http://deviceatlas.com/downloads]. You will need to sign up for a dev.mobi account to download the API.
 
@@ -48,7 +48,7 @@ python -c "from distutils.sysconfig import get_python_lib; print get_python_lib(
 
 _Be sure to move the Device Atlas API into a folder called `deviceatlas`_
 
-*Install Device Atlas dependency `simplejson`:*
+Install Device Atlas dependency `simplejson`:===
 
 To use Device Atlas we'll need to install it's dependencies.
 
@@ -56,7 +56,7 @@ To use Device Atlas we'll need to install it's dependencies.
 easy_install simplejson
 }}}
 
-*Install Device Atlas JSON library file:*
+===Install Device Atlas JSON library file:===
 
 Device Atlas works by parsing a JSON library file of device attributes. We'll need to download this file and put it in the `deviceatlas` directory we created. You can download the free Device Atlas developer file from [http://deviceatlas.com/product http://deviceatlas.com/product].
 
@@ -78,7 +78,7 @@ da.getProperties(tree, ua)
 If nothing broke, we're ready to move on, otherwise go back and check everything!
 
 
-*Add `bloom.device` to `INSTALLED_APPS`:*
+===Add `bloom.device` to `INSTALLED_APPS`:===
 
 {{{
 INSTALLED_APPS = (
@@ -88,7 +88,7 @@ INSTALLED_APPS = (
 )
 }}}
 
-*Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`:*
+===Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`:===
 
 `DeviceDetectMiddleware` adds device information to all requests.
 
