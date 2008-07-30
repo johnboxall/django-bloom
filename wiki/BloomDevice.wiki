@@ -1,4 +1,6 @@
+#summary BloomDevice let's you see which kinds of devices are browsing your mobile website.
 #labels Phase-Deploy,Featured
+
 BloomDevice uses [http://deviceatlas.com/ Device Atlas] to detect the browsing device from `request.META['HTTP_USER_AGENT']`. BloomDevice modifies the `request` object, adding the dictionary `request.device` which contains information about the browsing device pulled from Device Atlas.
 
 For example:
@@ -15,22 +17,23 @@ For example:
 
 Device detection can be used either on all requests through `bloom.device.middleware.DeviceDetectMiddleware` or applied to individual views with the decorator function `bloom.device.decorators.detect_device`.
 
-----
-
-=Installation Overview=
+= Installation Overview =
  
-  * Install Device Atlas Python API
-  * Install Device Atlas dependency `simplejson`
-  * Install Device Atlas JSON library file
-  * Add `bloom.device` to `INSTALLED_APPS`
-  * Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`
-  * Or `bloom.device.decorators.detect_device` decorator on a view
+  # Install Bloom
+  # Install Device Atlas Python API
+  # Install Device Atlas dependency `simplejson`
+  # Install Device Atlas JSON library file
+  # Add `bloom.device` to `INSTALLED_APPS`
+  # Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`
+  # Add the `bloom.device.decorators.detect_device` decorator to a view
 
-----
+= Installation Guide =
 
-=Installation Guide=
+=== 1. Install Bloom ===
 
-===Install Device Atlas Python API:===
+See the Bloom installation guide here...
+
+=== 2. Install Device Atlas Python API ===
 
 Download the Device Atlas Python API from [http://deviceatlas.com/downloads http://deviceatlas.com/downloads]. You will need to sign up for a dev.mobi account to download the API.
 
@@ -56,7 +59,7 @@ To use Device Atlas we'll need to install it's dependencies.
 easy_install simplejson
 }}}
 
-===Install Device Atlas JSON library file:===
+=== 3. Install Device Atlas JSON library file ===
 
 Device Atlas works by parsing a JSON library file of device attributes. We'll need to download this file and put it in the `deviceatlas` directory we created. You can download the free Device Atlas developer file from [http://deviceatlas.com/product http://deviceatlas.com/product].
 
@@ -78,7 +81,7 @@ da.getProperties(tree, ua)
 If nothing broke, we're ready to move on, otherwise go back and check everything!
 
 
-===Add `bloom.device` to `INSTALLED_APPS`:===
+=== 4. Add `bloom.device` to `INSTALLED_APPS` ===
 
 {{{
 INSTALLED_APPS = (
@@ -88,7 +91,7 @@ INSTALLED_APPS = (
 )
 }}}
 
-===Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES`:===
+=== 5. Add `bloom.device.middleware.DeviceDetectMiddleware` to `MIDDLEWARE_CLASSES` ===
 
 `DeviceDetectMiddleware` adds device information to all requests.
 
@@ -100,7 +103,7 @@ MIDDLEWARE_CLASSES = (
 )
 }}}
 
-===Using the `bloom.device.decorators.detect_device` Decorator:===
+=== 6. Add the `bloom.device.decorators.detect_device` decorator to a view ===
 
 The `detect_device` decorator can be used to add device information to a specific view.
 
