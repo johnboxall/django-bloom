@@ -25,3 +25,5 @@ INSTALLED_APPS = (
     bloom.user,
     ...
 )
+
+[BloomUserAPI API Documentation]
