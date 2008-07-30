@@ -12,9 +12,8 @@ BloomTrack can be used either on all requests through `bloom.track.middleware.Tr
 = Installation Overview =
 
   # Install Bloom
-  # Add `bloom.track` to `INSTALLED_APPS
-  # Add `bloom.track.middleware.TrackMiddleware` to your `MIDDLEWARE_CLASSES`
-  # Add `bloom.track.decorators.track` to a view
+  # Modify `settings.py`
+  # Usage
 
 = Installation Guide =
 
@@ -22,7 +21,9 @@ BloomTrack can be used either on all requests through `bloom.track.middleware.Tr
 
 Follow the Bloom install guide here.
 
-=== 2. Add `bloom.track` to `INSTALLED_APPS` ===
+=== 2. Modify `settings.py` ===
+
+Add `bloom.track` to `INSTALLED_APPS`:
 
 {{{
 INSTALLED_APPS = (
@@ -32,9 +33,11 @@ INSTALLED_APPS = (
 )
 }}}
 
-=== 3. Add `bloom.track.middleware.TrackMiddleware` to your `MIDDLEWARE_CLASSES` ===
+=== 3. Usage ===
 
-Adding the `TrackMiddleware` will record user history on all views, including admin views.
+BloomTrack can be used either on all requests through `bloom.track.middleware.TrackMiddleware` or applied to individual views with the decorator function `bloom.device.decorators.track`.
+
+To use the `TrackMiddleware` add it to your `MIDDLEWARE_CLASSES`:
 
 {{{
 MIDDLEWARE_CLASSES = (
@@ -44,9 +47,7 @@ MIDDLEWARE_CLASSES = (
 )
 }}}
 
-=== 4. Add `bloom.track.decorators.track` to a view ===
-
-Use the `Add `bloom.track.decorators.track` decorator to record analytics about a single view.
+To use the `track` decorator, use it on a view:
 
 {{{
 from bloom.track.decorators import track
@@ -55,3 +56,5 @@ from bloom.track.decorators import track
 def my_view(request):
     ...
 }}}
+
+All analytic records are stored in the `bloom_track` table.
