@@ -23,7 +23,7 @@ Produces:
   # Install Bloom
   # Signup as Admob as an ad publisher
   # Modify `settings.py`
-  # Use the `admob` template tag in a template
+  # Usage
 
 = Installation Guide =
 
@@ -58,7 +58,7 @@ BLOOM_ADMOB_DEBUG = True # Switch to False when you are ready to serve ads in Pr
 BLOOM_ADMOB_SITE_ID = 'get-from-admob' # Your Admob site ID
 }}}
 
-=== 3. Use the `admob` template tag in a template ===
+=== 4. Usage ===
 
 To display a generic Admob ad with we can use the `admob` template tag in the `admob` tag library:
 
