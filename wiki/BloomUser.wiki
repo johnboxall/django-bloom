@@ -22,7 +22,7 @@ All accounts that are created automatically by bloom.user are set to is_active =
 
 INSTALLED_APPS = (
     ...
-    bloom.user,
+    'bloom.user',
     ...
 )
 
