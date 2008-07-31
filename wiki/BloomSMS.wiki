@@ -1,4 +1,4 @@
-bloom-sms is here to provide a unified interface to different SMS providers.
+# Provides a unified interface to different SMS providers.
 
 = Introduction =
 bloom-sms is designed to use any number of SMS providers.  There is currently a connector for UpsideWireless, however it is not difficult to add other providers.
