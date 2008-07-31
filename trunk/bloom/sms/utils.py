@@ -53,6 +53,7 @@ class SendSMS(object):
         return self.connector.was_send_successful(response)
         
     def __record_sent_sms(self, recipient, message, success, fullresponse):
+        print SMS_RECORD_SENT
         if SMS_RECORD_SENT == True:
             SentSMS.objects.create(phone_number=recipient, message=message, success=success, fullresponse=fullresponse)
             

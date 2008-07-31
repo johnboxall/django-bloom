@@ -10,21 +10,16 @@ class BloomSettingsException(Exception):
 
 
 def get_setting(setting, override=None, exception_text=None):
-		"Custom settings for the Bloom project."
-
-		if override is not None:
-				return override
-
-
-		if hasattr(settings, 'BLOOM_%s' % setting):
-
-				print 'Returning ... BLOOM_%s' % setting
-
-
-				return getattr(settings, 'BLOOM_%s' % setting)
+    "Custom settings for the Bloom project."
+    if hasattr(settings, 'BLOOM_%s' % setting):
+        #print 'Returning ... BLOOM_%s' % setting
+        return getattr(settings, 'BLOOM_%s' % setting)
 	
-		if exception_text is None:
-			raise BloomSettingsException('BLOOM_%s is not defined!' % setting)
-		else:
-			raise BloomSettingsException(exception_text)
+    if override is not None:
+        return override
 
+    if exception_text is None:
+        raise BloomSettingsException('BLOOM_%s is not defined!' % setting)
+    else:
+        raise BloomSettingsException(exception_text)
+        

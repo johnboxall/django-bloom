@@ -16,7 +16,7 @@ class SentSMS(models.Model):
     utime = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return "%s -> %s" % (self.phone_number, self.msg,)
+        return "%s -> %s" % (self.phone_number, self.message)
 
     class Admin:
         pass
@@ -30,7 +30,7 @@ class ReceivedSMS(models.Model):
     utime = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
-        return "%s -> %s" % (self.phone_number, self.msg,)    
+        return "%s -> %s" % (self.phone_number, self.message)    
     
     class Admin:
         pass
