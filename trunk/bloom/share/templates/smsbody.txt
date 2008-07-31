@@ -1,0 +1,2 @@
+{{ sender_name }} wants to share this link with you {{ sharelink }}
+
