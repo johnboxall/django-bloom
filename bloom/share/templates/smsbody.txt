@@ -1,2 +1,2 @@
-{{ sender_name }} wants to share this link with you {{ sharelink }}
+{{ sharer.username }} wants to share this link with you {{ sharelink }}
 

@@ -53,7 +53,7 @@ def share_by_email(request, url, email, subject_template='emailsubject.txt', bod
 	sharee = get_or_create_user_by_email(email)
 	link = share_url(sharer, url, medium, sharee)
 	
-	extra_context = {'sender': sharer, 'sharelink': link, 'email': email}
+	extra_context = {'sharer': sharer, 'sharelink': link, 'email': email}
 
 	subject = render_to_string(subject_template, extra_context)
 	body = render_to_string(body_template, extra_context)
@@ -66,7 +66,7 @@ def share_by_sms(request, url, phone_number, body_template='smsbody.txt'):
 	sharee = get_or_create_user_by_phonenumber(phone_number)
 	link = share_url(sharer, url, medium, sharee)
 
-	extra_context = {'sender_name': sharer.username, 'sharelink': link}
+	extra_context = {'sharer': sharer, 'sharelink': link}
 	message = render_to_string(body_template, extra_context)
 
 	return send_sms(message, [phone_number])
