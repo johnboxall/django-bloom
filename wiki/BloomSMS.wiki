@@ -1,4 +1,4 @@
-# Provides a unified interface to different SMS providers.
+#summary Provides a unified interface to different SMS providers.
 
 = Introduction =
 bloom-sms is designed to use any number of SMS providers.  There is currently a connector for UpsideWireless, however it is not difficult to add other providers.
@@ -12,34 +12,43 @@ There is a basic widget to give you an example of how bloom.sms works.
 Add bloom.sms.views.send_sms_view to your url patterns and it should display a basic page with a field to send a SMS message to a phone number.
 This widget expects your settings.py to contain the correct values, and for the template directory bloom.sms.templates to be added to your templates directory.
 
+= Installation Guide =
+
+  # Modify `settings.py`
 
 = Installation Overview =
 
-    * Add bloom.device to your INSTALLED_APPS: 
+=== 1. Modify `settings.py` ===
 
+Add 'bloom.sms' to your `INSTALLED_APPS`: 
+
+{{{
 INSTALLED_APPS = (
     ...
-    bloom.sms,
+    'bloom.sms',
     ...
 )
+}}}
 
-    * Make sure you correctly configure your settings.py to contain your chosen SMS provider and credentials
+Configure SMS provider:
+
 {{{
-#SMS provider credentials
+# SMS provider credentials
 BLOOM_SMS_SERVICE_PROVIDER = 'UPSIDE'
 BLOOM_SMS_SERVICE_USERNAME = 'username'
 BLOOM_SMS_SERVICE_PASSWORD = 'password'
-#turn on or off recording of SMS messages into the bloom.sms.models database
-BLOOM_SMS_RECORD_SENT = 'False'
-BLOOM_SMS_RECORD_RECEIVED = 'False'
 
-#these settings are upside specific
-#they can be left blank, but there is a performance hit in doing so.
-BLOOM_SMS_UPSIDE_TOKEN = ''
-BLOOM_SMS_UPSIDE_SIG = ''
+# turn on or off recording of SMS messages into the bloom.sms.models database
+BLOOM_SMS_RECORD_SENT = False
+BLOOM_SMS_RECORD_RECEIVED = False
 }}}
-bloom.sms is now properly setup and can be used to send sms messages from within your app.
 
+# Provider specific settings
+
+# Upside 
+BLOOM_SMS_UPSIDE_TOKEN = '' # Get from Upside
+BLOOM_SMS_UPSIDE_SIG = '' # Get from Upside
+}}}
 
 [BloomSMSAPI API Documentation]
 
