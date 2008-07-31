@@ -9,7 +9,7 @@ bloom-share shortens urls by storing the full url in a database and doing lookup
 
 INSTALLED_APPS = (
     ...
-    bloom.share,
+    'bloom.share',
     ...
 )
 
