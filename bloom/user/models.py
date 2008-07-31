@@ -24,4 +24,4 @@ class UserPhoneNumber(models.Model):
     class Admin:
         pass
         
-admin.site.register(UserNumber)
+admin.site.register(UserPhoneNumber)
