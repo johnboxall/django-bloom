@@ -1,4 +1,4 @@
-#summary BloomAd makes it simple to insert mobile ads into your website.
+#summary Insert mobile ads into your website.
 #labels Phase-Deploy
 
 = Introduction =
