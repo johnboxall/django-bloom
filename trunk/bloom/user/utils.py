@@ -7,16 +7,16 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from bloom.user.models import UserNumber
+from bloom.user.models import UserPhoneNumber
 
 
 def get_or_create_user_by_phonenumber(number):
-    user_number = UserNumber.objects.filter(number=number)
+    user_number = UserPhoneNumber.objects.filter(number=number)
     if user_number.count() == 0:
         user = User.objects.create_user(number,'numberonly@localhost', 'non-valid password')
         user.is_active = False
         user.save()
-        un = UserNumber(user=user,number=number,name=number)
+        un = UserPhoneNumber(user=user,number=number,name=number)
         un.save()
         return user
     else:
