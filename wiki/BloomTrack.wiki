@@ -1,4 +1,4 @@
-#summary BloomTrack let's you track your users' activity on your website.
+#summary Analytics on your users' activity on your website.
 #labels Phase-Deploy
 
 = Introduction =
