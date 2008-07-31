@@ -1,4 +1,4 @@
-#summary BloomImage resizes images on the fly to fit mobile devices.
+#summary Resizes images on the fly to fit mobile devices.
 #labels Phase-Deploy
 
 = Introduction =
