@@ -20,6 +20,9 @@ class SentSMS(models.Model):
 
     class Admin:
         pass
+        
+    class Meta:
+        verbose_name_plural = "Sent SMSes"
 
 class ReceivedSMS(models.Model):
     phone_number = models.CharField(max_length=20)
@@ -34,6 +37,9 @@ class ReceivedSMS(models.Model):
     
     class Admin:
         pass
-        
+
+    class Meta:
+        verbose_name_plural = "Received SMSes"
+                
 admin.site.register(SentSMS)
 admin.site.register(ReceivedSMS)
